@@ -7,10 +7,13 @@ const shopRoutes = require("./routes/shop");
 const pageNotFoundRoutes = require("./routes/pageNotFound");
 const path = require("path");
 
+app.set("view engine", "pug");
+app.set("views", "views");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(adminRoutes);
+app.use(adminRoutes.routes);
 app.use(shopRoutes);
 app.use(pageNotFoundRoutes);
 
