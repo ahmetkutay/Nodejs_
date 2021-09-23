@@ -6,8 +6,17 @@ const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const pageNotFoundRoutes = require("./routes/pageNotFound");
 const path = require("path");
+const expressHbs = require("express-handlebars");
 
-app.set("view engine", "pug");
+app.engine(
+  "hbs",
+  expressHbs({
+    layoutsDir: "views/layout/",
+    defaultLayout: "main-layout",
+    extname: "hbs",
+  })
+);
+app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
