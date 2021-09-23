@@ -8,15 +8,15 @@ const pageNotFoundRoutes = require("./routes/pageNotFound");
 const path = require("path");
 const expressHbs = require("express-handlebars");
 
-app.engine(
-  "hbs",
-  expressHbs({
-    layoutsDir: "views/layout/",
-    defaultLayout: "main-layout",
-    extname: "hbs",
-  })
-);
-app.set("view engine", "hbs");
+// app.engine(
+//   "hbs",
+//   expressHbs({
+//     layoutsDir: "views/layout/",
+//     defaultLayout: "main-layout",
+//     extname: "hbs",
+//   })
+// );
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
